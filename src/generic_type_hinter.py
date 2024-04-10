@@ -1,5 +1,3 @@
-
-
 from src.constants import DUNDER_METHODS, TYPING_DUNDERS
 
 
@@ -22,4 +20,3 @@ def get_generic_type(objs):
         type_hints.append(get_single_generic_type(obj))
 
     return type_hints
-

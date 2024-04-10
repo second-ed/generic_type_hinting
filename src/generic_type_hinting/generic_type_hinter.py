@@ -1,4 +1,4 @@
-from src.constants import DUNDER_METHODS, TYPING_DUNDERS
+from generic_type_hinting.constants import DUNDER_METHODS, TYPING_DUNDERS
 
 
 def get_single_generic_type(obj):

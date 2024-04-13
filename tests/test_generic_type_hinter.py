@@ -142,4 +142,4 @@ def test_types_get_generic_types(
 def test_values_get_single_generic_type(
     get_instance: GenericTypeHinter, obj, expected_result
 ) -> None:
-    get_instance.get_single_generic_type(obj) is None
+    get_instance.get_single_generic_type(obj) == expected_result

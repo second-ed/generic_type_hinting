@@ -134,6 +134,9 @@ def test_types_get_generic_types(
         ([], typing.Sequence),
         (set(), typing.Collection),
         ({}, typing.Mapping),
+        (1, None),
+        (0.0, None),
+        (" ", None),
     ],
 )
 def test_values_get_single_generic_type(

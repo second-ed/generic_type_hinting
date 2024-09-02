@@ -2,7 +2,8 @@ import collections
 import typing
 
 import pytest
-from generic_type_hinting.generic_type_hinter import GenericTypeHinter
+
+from src.generic_type_hinting.generic_type_hinter import GenericTypeHinter
 
 
 @pytest.fixture
@@ -85,7 +86,7 @@ def test_init(get_instance: GenericTypeHinter) -> None:
 def test_values_analyse_group(
     get_instance: GenericTypeHinter, objs, expected_result
 ) -> None:
-    get_instance.analyse_group(objs) == expected_result
+    assert get_instance.analyse_group(objs) == expected_result
 
 
 @pytest.mark.parametrize(
@@ -111,7 +112,7 @@ def test_types_analyse_group(get_instance: GenericTypeHinter, objs) -> None:
 def test_values_get_generic_types(
     get_instance: GenericTypeHinter, objs, expected_result
 ) -> None:
-    get_instance.get_generic_types(objs) == expected_result
+    assert get_instance.get_generic_types(objs) == expected_result
 
 
 @pytest.mark.parametrize(
@@ -125,7 +126,7 @@ def test_types_get_generic_types(
     get_instance: GenericTypeHinter, objs
 ) -> None:
     with pytest.raises(TypeError):
-        get_instance.get_generic_types(objs)
+        assert get_instance.get_generic_types(objs)
 
 
 @pytest.mark.parametrize(
@@ -134,12 +135,12 @@ def test_types_get_generic_types(
         ([], typing.Sequence),
         (set(), typing.Collection),
         ({}, typing.Mapping),
+        (" ", typing.Collection),
         (1, None),
         (0.0, None),
-        (" ", None),
     ],
 )
 def test_values_get_single_generic_type(
     get_instance: GenericTypeHinter, obj, expected_result
 ) -> None:
-    get_instance.get_single_generic_type(obj) == expected_result
+    assert get_instance.get_single_generic_type(obj) == expected_result

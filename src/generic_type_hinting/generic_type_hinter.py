@@ -2,7 +2,8 @@ from typing import Optional
 
 import attr
 from attr.validators import instance_of
-from generic_type_hinting.constants import DUNDER_METHODS, TYPING_DUNDERS
+
+from .constants import DUNDER_METHODS, TYPING_DUNDERS
 
 
 @attr.define
